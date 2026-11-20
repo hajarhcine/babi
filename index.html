@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BaBi · Cison di Valmarino</title>
+<meta name="description" content="BaBi, casa vacanza di 74 mq nel cuore di Cison di Valmarino, sulle Colline del Prosecco: giardino privato con gazebo, vista sul castello, parcheggio gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* Pagina unica: foto piena in apertura, fasce crema con filetti sabbia,
+   accento rame per le azioni, bordeaux per i titoli. Un solo aspetto (caldo, chiaro), scelto di proposito. */
+:root{
+  color-scheme: light;
+  --crema:#FAF5EC;
+  --sabbia:#F2E9DA;
+  --inchiostro:#2E241D;
+  --vino:#6E2233;
+  --notte:#3A1B22;
+  --rame:#B5763A;
+  --oro-chiaro:#F0D2A6;
+  --filo:#DDD0BC;
+  --fumo:#8A7867;
+  --testo-chiaro:#F4EADB;
+
+  --display:"Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --testo:"Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --firma:"Pinyon Script", "Cormorant Garamond", Georgia, serif;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{margin:0;background:var(--crema);color:var(--inchiostro);font-family:var(--testo);font-weight:300;font-size:17px;line-height:1.72;}
+img{max-width:100%;display:block;}
+a{color:var(--vino);}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance;}
+p{margin:0;}
+b,strong{font-weight:500;}
+
+.wrap{
+  max-width:1180px;margin:0 auto;
+  padding-left:max(18px, env(safe-area-inset-left, 0px));
+  padding-right:max(18px, env(safe-area-inset-right, 0px));
+}
+.occhiello{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--rame);font-weight:400;margin-bottom:14px;}
+h2{font-family:var(--display);font-weight:300;font-size:clamp(32px,4.6vw,54px);line-height:1.1;max-width:20ch;}
+h2 em{font-style:italic;color:var(--vino);}
+.intro{max-width:62ch;margin-top:20px;font-size:clamp(16px,1.6vw,18px);color:#4A3B2F;}
+section{padding-block:clamp(60px,8vw,110px) 0;}
+:focus-visible{outline:2px solid var(--rame);outline-offset:3px;}
+
+/* ---------- bottoni ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--testo);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:19px 32px;border-radius:2px;transition:background .2s ease,color .2s ease;}
+.btn svg{width:18px;height:18px;flex:none;}
+.btn-rame{background:var(--rame);color:var(--inchiostro);box-shadow:0 14px 34px rgba(0,0,0,.28);}
+.btn-rame:hover{background:var(--crema);color:var(--vino);}
+.btn-linea{border:1px solid rgba(250,245,236,.6);color:var(--crema);font-weight:400;}
+.btn-linea:hover{background:var(--crema);color:var(--inchiostro);}
+.link-freccia{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--vino);text-decoration:none;border-bottom:1px solid var(--rame);padding-bottom:5px;white-space:nowrap;}
+.link-freccia:hover{color:var(--rame);}
+
+/* ---------- apertura ---------- */
+.apertura{position:relative;isolation:isolate;min-height:min(92vh,860px);display:grid;align-items:end;overflow:hidden;background:var(--notte);}
+.apertura > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:-2;animation:lento 38s ease-in-out infinite;}
+.apertura::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(38,28,22,.55) 0%,rgba(38,28,22,.2) 36%,rgba(30,21,16,.9) 100%),
+    linear-gradient(100deg,rgba(30,21,16,.7) 0%,rgba(30,21,16,.3) 48%,rgba(30,21,16,0) 80%);}
+@keyframes lento{0%,100%{transform:scale(1.04)}50%{transform:scale(1.12) translate3d(-1.5%,-2%,0)}}
+.testata{position:absolute;top:0;left:0;right:0;z-index:2;}
+.testata .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:clamp(18px,3vw,32px);}
+.marchio{display:flex;align-items:center;gap:12px;color:var(--crema);text-decoration:none;}
+.mono{width:40px;height:40px;border:1px solid rgba(240,210,166,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-style:italic;font-size:22px;line-height:1;color:var(--oro-chiaro);}
+.marchio span:last-child{font-family:var(--firma);font-size:clamp(32px,4vw,42px);line-height:1;text-shadow:0 2px 14px rgba(24,16,12,.45);padding-right:.08em;}
+.testata .btn{padding:11px 18px;font-size:11px;letter-spacing:.2em;}
+.apertura .contenuto{width:100%;padding-block:clamp(120px,14vw,170px) clamp(44px,7vw,84px);}
+.apertura .occhiello{color:var(--oro-chiaro);text-shadow:0 1px 10px rgba(24,16,12,.6);}
+.apertura h1{font-family:var(--display);font-size:clamp(44px,7vw,92px);line-height:1.03;color:#FFFDF7;max-width:14ch;text-shadow:0 2px 26px rgba(24,16,12,.6);}
+.apertura .sotto{margin-top:22px;font-family:var(--display);font-style:italic;font-size:clamp(21px,2.5vw,30px);color:#F7E9D2;max-width:36ch;line-height:1.35;text-shadow:0 2px 16px rgba(24,16,12,.65);}
+.apertura .corpo{margin-top:18px;max-width:54ch;color:var(--testo-chiaro);font-weight:400;text-shadow:0 2px 14px rgba(24,16,12,.7);}
+.apertura .azioni{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+.credito-foto{position:absolute;right:max(12px, env(safe-area-inset-right, 0px));bottom:10px;font-size:10px;color:rgba(250,245,236,.55);letter-spacing:.03em;}
+
+/* ---------- avviso stagione ---------- */
+.avviso{padding-block:clamp(22px,3vw,34px) 0;}
+.avviso .riquadro{background:linear-gradient(90deg,#F6E7CE,var(--sabbia));border-left:3px solid var(--rame);padding:clamp(22px,3vw,30px) clamp(22px,3vw,36px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;}
+.avviso p{max-width:70ch;color:#4A3B2F;font-size:clamp(15px,1.6vw,17px);min-width:0;}
+
+/* ---------- distanze ---------- */
+.distanze{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));margin-top:clamp(30px,4vw,50px);border-top:1px solid var(--filo);border-left:1px solid var(--filo);}
+.dist{border-right:1px solid var(--filo);border-bottom:1px solid var(--filo);padding:clamp(24px,3vw,34px);}
+.dist svg{width:26px;height:26px;stroke:var(--rame);fill:none;stroke-width:1.2;}
+.dist .q{margin-top:18px;font-family:var(--display);font-size:34px;line-height:1;}
+.dist .l{margin-top:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--fumo);}
+
+/* ---------- perché ---------- */
+.perche{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(28px,4vw,44px);margin-top:clamp(30px,4vw,50px);}
+.perche > div{border-top:1px solid var(--rame);padding-top:20px;min-width:0;}
+.perche h3{font-family:var(--display);font-size:26px;line-height:1.2;margin-bottom:10px;}
+.perche p{color:#4A3B2F;font-size:16px;}
+
+/* ---------- appartamento ---------- */
+.appartamento{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(30px,5vw,64px);align-items:start;}
+.appartamento > div{min-width:0;}
+.cifre{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:30px;border-top:1px solid var(--filo);}
+.cifre div{padding:18px 0;border-bottom:1px solid var(--filo);}
+.cifre div:nth-child(odd){padding-right:16px;}
+.cifre b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.1;}
+.cifre span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fumo);}
+.foto-vuota{background:repeating-linear-gradient(135deg,rgba(110,34,51,.05) 0 10px,transparent 10px 20px),var(--sabbia);border:1px dashed var(--filo);display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:var(--fumo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;max-width:100%;}
+.mosaico{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;}
+.mosaico > *{width:100%;height:auto;object-fit:cover;}
+.mosaico > :nth-child(1){grid-column:span 6;aspect-ratio:16/10;}
+.mosaico > :nth-child(n+2){grid-column:span 3;aspect-ratio:1/1;}
+.galleria{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:clamp(40px,5vw,60px);}
+.galleria > *{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
+
+/* ---------- dotazioni ---------- */
+.fascia-sabbia{background:var(--sabbia);margin-top:clamp(60px,8vw,110px);padding-block:clamp(56px,7vw,90px);}
+.fascia-sabbia section,.fascia-sabbia{}
+.due{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px);margin-top:clamp(28px,4vw,44px);}
+.due > div{min-width:0;}
+.due h3{font-family:var(--display);font-size:25px;margin-bottom:8px;}
+ul.elenco{list-style:none;margin:0;padding:0;}
+ul.elenco li{padding:11px 0 11px 22px;border-bottom:1px solid var(--filo);position:relative;font-size:16px;}
+ul.elenco li::before{content:"";position:absolute;left:3px;top:21px;width:7px;height:7px;border:1px solid var(--rame);transform:rotate(45deg);}
+.nota{margin-top:16px;font-family:var(--display);font-style:italic;font-size:19px;color:var(--vino);}
+
+/* ---------- giardino ---------- */
+.giardino{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(30px,5vw,64px);align-items:center;}
+.giardino > div{min-width:0;}
+.coppia{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.coppia img{width:100%;height:auto;aspect-ratio:3/5;object-fit:cover;}
+.coppia img:last-child{margin-top:48px;}
+.etichette{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.etichette span{border:1px solid var(--filo);padding:8px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fumo);}
+
+/* ---------- dintorni ---------- */
+.autunno{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,3vw,36px);margin-top:clamp(30px,4vw,50px);}
+.voce{min-width:0;}
+.voce figure{margin:0 0 16px;}
+.voce img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;}
+.voce figcaption{margin-top:6px;font-size:10.5px;color:var(--fumo);}
+.voce .tempo{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rame);margin-bottom:6px;}
+.voce h3{font-family:var(--display);font-size:25px;line-height:1.2;margin-bottom:8px;}
+.voce p{font-size:16px;color:#4A3B2F;}
+.altri{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 clamp(24px,3vw,36px);margin-top:clamp(30px,4vw,44px);border-top:1px solid var(--filo);}
+.altri div{padding:18px 0;border-bottom:1px solid var(--filo);min-width:0;}
+.altri b{font-family:var(--display);font-weight:400;font-size:22px;display:block;}
+.altri span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rame);}
+
+/* ---------- recensione ---------- */
+.fascia-notte{background:var(--notte);color:var(--crema);margin-top:clamp(60px,8vw,110px);padding-block:clamp(60px,8vw,100px);text-align:center;}
+.fascia-notte .occhiello{color:var(--oro-chiaro);}
+blockquote{margin:0 auto;max-width:34ch;font-family:var(--display);font-style:italic;font-size:clamp(23px,3.2vw,32px);line-height:1.45;}
+.firma-rec{margin-top:24px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,245,236,.6);}
+
+/* ---------- pratiche e domande ---------- */
+.pratiche{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,5vw,72px);align-items:start;}
+.pratiche > div{min-width:0;}
+.tabella{overflow-x:auto;margin-top:26px;}
+table{width:100%;border-collapse:collapse;font-size:16px;}
+th,td{text-align:left;vertical-align:top;padding:14px 0;border-bottom:1px solid var(--filo);}
+th{font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fumo);width:38%;padding-right:16px;padding-top:17px;}
+details{border-bottom:1px solid var(--filo);}
+details:first-of-type{border-top:1px solid var(--filo);margin-top:26px;}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-family:var(--display);font-size:22px;line-height:1.3;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--rame);font-family:var(--testo);font-size:22px;line-height:1.2;transition:transform .2s ease;}
+details[open] summary::after{transform:rotate(45deg);}
+details p{padding:0 0 20px;color:#4A3B2F;font-size:16px;max-width:60ch;}
+
+/* ---------- chiusura ---------- */
+.chiusura{position:relative;isolation:isolate;margin-top:clamp(60px,8vw,110px);padding-block:clamp(70px,9vw,120px);color:var(--crema);text-align:center;overflow:hidden;background:var(--notte);}
+.chiusura > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+.chiusura::before{content:"";position:absolute;inset:0;background:rgba(30,21,16,.72);z-index:-1;}
+.chiusura h2{margin:0 auto;color:#FFFDF7;}
+.chiusura .intro{margin:18px auto 0;color:var(--testo-chiaro);}
+.chiusura .azioni{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:32px;}
+.contatti{margin-top:44px;display:grid;gap:4px;font-size:16px;color:var(--testo-chiaro);}
+.contatti .numero{font-family:var(--display);font-size:28px;color:#FFFDF7;}
+.codici{margin-top:30px;padding-top:20px;border-top:1px solid rgba(240,210,166,.3);font-size:12px;letter-spacing:.12em;color:rgba(250,245,236,.6);line-height:2;}
+footer{background:#24120F;color:rgba(250,245,236,.5);padding-block:24px calc(24px + 64px);font-size:12px;text-align:center;}
+footer p + p{margin-top:6px;font-size:10.5px;color:rgba(250,245,236,.4);}
+
+/* ---------- barra fissa ---------- */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(36,18,15,.94);backdrop-filter:blur(6px);border-top:1px solid rgba(240,210,166,.25);
+  padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
+  display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.barra span{color:rgba(250,245,236,.75);font-size:13px;min-width:0;}
+.barra span b{font-family:var(--firma);font-weight:400;font-size:24px;color:var(--crema);margin-right:6px;}
+.barra .btn{padding:12px 18px;font-size:11px;letter-spacing:.16em;box-shadow:none;}
+@media (min-width:900px){.barra{display:none;}footer{padding-block:24px;}}
+@media (max-width:520px){.barra span{display:none;}.barra .btn{flex:1;justify-content:center;}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .apertura > img{animation:none;}
+  *{transition:none !important;}
+}
+</style>
+
+</head>
+<body>
+<header class="apertura">
+  <img src="img/castelbrando-notte.jpg" alt="CastelBrando illuminato di notte sopra il borgo di Cison" width="1920" height="1297">
+  <div class="testata">
+    <div class="wrap">
+      <a class="marchio" href="#" aria-label="BaBi"><span class="mono" aria-hidden="true">B</span><span>BaBi</span></a>
+      <a class="btn btn-linea" href="#contatti">Contatti</a>
+    </div>
+  </div>
+  <div class="wrap contenuto">
+    <p class="occhiello">Cison di Valmarino · Colline del Prosecco</p>
+    <h1>Una casa nel borgo, tra le Colline del Prosecco</h1>
+    <p class="sotto">Una casa intera nel cuore del borgo, con il castello che si illumina sopra i tetti</p>
+    <p class="corpo">Settantaquattro metri quadri, un giardino privato con gazebo e il parcheggio accanto alla porta. Le cantine sono a pochi minuti, le osterie si raggiungono a piedi.</p>
+    <div class="azioni">
+      <a class="btn btn-rame" href="https://wa.me/393200814174?text=Buongiorno%2C%20vorrei%20sapere%20se%20BaBi%20%C3%A8%20libera%20per%20queste%20date%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>Chiedi le tue date</a>
+      <a class="btn btn-linea" href="https://www.booking.com/hotel/it/babi-cison-di-valmarino.it.html" target="_blank" rel="noopener">Vedi su Booking.com</a>
+    </div>
+  </div>
+  <span class="credito-foto">Foto Fabio Ragagnin · CC BY-SA 4.0</span>
+</header>
+
+<div class="avviso">
+  <div class="wrap">
+    <div class="riquadro">
+      <p>La vendemmia a settembre, i vigneti <b>oro e rame</b> in autunno, le luci di <i>Stelle a Natale</i> a dicembre, i sentieri in primavera. Scriveteci le vostre date: rispondiamo noi, senza intermediari.</p>
+      <a class="link-freccia" href="https://wa.me/393200814174?text=Buongiorno%2C%20vorrei%20sapere%20se%20BaBi%20%C3%A8%20libera%20per%20queste%20date%3A%20" target="_blank" rel="noopener">Chiedi su WhatsApp →</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="occhiello">Distanze</p>
+    <h2>Tutto vicino, <em>niente fretta</em></h2>
+    <div class="distanze">
+      <div class="dist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg><div class="q">A piedi</div><div class="l">CastelBrando e la piazza</div></div>
+      <div class="dist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="q">5 minuti</div><div class="l">Rolle e le cantine</div></div>
+      <div class="dist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="q">10 minuti</div><div class="l">Abbazia di Follina</div></div>
+      <div class="dist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h16M6 16l1.6-5.2A2 2 0 0 1 9.5 9.4h5a2 2 0 0 1 1.9 1.4L18 16"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg><div class="q">Circa 1 ora</div><div class="l">Venezia, in auto</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="occhiello">Perché BaBi</p>
+    <h2>Un borgo da vivere <em>a piedi</em></h2>
+    <div class="perche">
+      <div><h3>Le cantine a due passi</h3><p>Il punto di partenza per le degustazioni e le passeggiate fra i vigneti del Prosecco Superiore.</p></div>
+      <div><h3>Nel cuore del borgo</h3><p>Si cena nelle osterie del paese e si torna a casa a piedi. L'auto resta nel parcheggio privato accanto alla porta.</p></div>
+      <div><h3>Una casa intera</h3><p>74 mq tutti per voi, con il giardino privato, il gazebo e il castello che si vede dalle finestre.</p></div>
+      <div><h3>Vi accoglie Maria Barbara</h3><p>All'arrivo vi mostra la casa e vi lascia i suoi consigli su cantine e osterie. Durante il soggiorno basta un messaggio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="appartamento">
+      <div>
+        <p class="occhiello">L'appartamento</p>
+        <h2>Legno, luce e <em>il rosso di casa</em></h2>
+        <p class="intro">Pavimenti in legno, mobili di famiglia, poltrone rosse e stampe antiche alle pareti. BaBi è una casa vera, tenuta con cura.</p>
+        <p class="intro">In camera c'è il letto matrimoniale, in soggiorno due letti singoli. Poi la cucina con la zona pranzo e il bagno.</p>
+        <div class="cifre">
+          <div><b>74 mq</b><span>tutta la casa</span></div>
+          <div><b>4 ospiti</b><span>matrimoniale + 2 singoli</span></div>
+          <div><b>Giardino</b><span>privato, con gazebo</span></div>
+          <div><b>Parcheggio</b><span>privato e gratuito</span></div>
+        </div>
+      </div>
+      <div class="mosaico">
+        <img src="img/soggiorno.jpg" alt="Il soggiorno: poltrona rossa, tavolino con teiera e tazze, pareti in legno di abete e la zona pranzo sullo sfondo" width="1600" height="1600">
+        <img src="img/camera.jpg" alt="La camera con il letto matrimoniale, cuscini rossi e bianchi, asciugamani piegati e uno specchio con cornice dorata" width="1600" height="1600">
+        <img src="img/cucina.jpg" alt="La cucina con piano cottura a gas, cappa in acciaio e una finestrella sul verde" width="1600" height="1600">
+      </div>
+    </div>
+    <div class="galleria">
+      <img src="img/pranzo.jpg" alt="Il tavolo da pranzo in legno con quattro sedie intagliate a cuore e stampe di cavalli alle pareti" width="1600" height="1600" loading="lazy">
+      <img src="img/dettaglio.jpg" alt="Una lampada con paralume a quadretti rossi sotto tre stampe antiche di cavalli da corsa" width="1600" height="1600" loading="lazy">
+      <img src="img/facciata.jpg" alt="La facciata della casa con le persiane verdi, la pensilina in ferro battuto sopra l'ingresso e due poltroncine nel cortile" width="1200" height="1600" loading="lazy" style="object-position:center 55%">
+      <img src="img/bagno.jpg" alt="Il bagno con lavabo, specchio con cornice di legno, piastrelle chiare e pavimento in legno" width="1600" height="1600" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="fascia-sabbia">
+  <div class="wrap">
+    <p class="occhiello">Dotazioni</p>
+    <h2>Cosa trovate, <em>e cosa no</em></h2>
+    <div class="due">
+      <div>
+        <h3>In casa</h3>
+        <ul class="elenco">
+          <li>WiFi in tutto l'appartamento</li>
+          <li>Cucina con zona pranzo</li>
+          <li>Riscaldamento autonomo a gas</li>
+          <li>Climatizzatore portatile</li>
+          <li>Giardino privato con gazebo</li>
+          <li>Parcheggio privato gratuito</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Da sapere prima</h3>
+        <ul class="elenco">
+          <li>Non c'è la lavatrice</li>
+          <li>Niente aria condizionata fissa: c'è il climatizzatore portatile</li>
+          <li>Animali ammessi su richiesta, con un supplemento di 30 € a soggiorno</li>
+        </ul>
+        <p class="nota">Preferiamo dirlo qui, piuttosto che farvelo scoprire all'arrivo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="giardino">
+      <div class="coppia">
+        <img src="img/gazebo.jpg" alt="L'interno del gazebo di legno: un lettino con il cuscino, una lanterna traforata e il prato oltre il graticcio" width="900" height="1600" loading="lazy">
+        <img src="img/giardino.jpg" alt="Il prato del giardino con una grande magnolia, un cedro e un sentiero di pietre" width="844" height="1500" loading="lazy">
+      </div>
+      <div>
+        <p class="occhiello">Il giardino</p>
+        <h2>Un giro nel <em>nostro gazebo</em></h2>
+        <p class="intro">Il giardino è privato, riservato a chi soggiorna da BaBi. Sotto il gazebo di legno ci sono i lettini e una lanterna; tutto intorno il prato, un sentiero di pietre, una grande magnolia e un cedro che fanno ombra.</p>
+        <p class="intro">La sera si finisce lì, con un bicchiere di Prosecco.</p>
+        <div class="etichette"><span>Privato</span><span>Gazebo con lettini</span><span>Solo per gli ospiti</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="occhiello">Cosa fare nei dintorni</p>
+    <h2>Le colline, <em>a pochi minuti</em></h2>
+    <p class="intro">Cison è uno dei Borghi più belli d'Italia, nelle Colline del Prosecco riconosciute patrimonio UNESCO. Un paese piccolo e silenzioso, con una piazza, una loggia del Quattrocento e un castello.</p>
+    <div class="autunno">
+      <div class="voce">
+        <figure><img src="img/colline.jpg" alt="Vigneti a terrazze sulle colline del Prosecco" width="1280" height="853" loading="lazy"><figcaption>Colline del Prosecco · foto Patafisik · CC BY-SA 4.0</figcaption></figure>
+        <span class="tempo">5 minuti</span>
+        <h3>Rolle e le cantine</h3>
+        <p>La frazione più bella del comune, poche case in mezzo ai vigneti. Qui e nei dintorni si visitano le cantine del Prosecco.</p>
+      </div>
+      <div class="voce">
+        <figure><img src="img/castelbrando.jpg" alt="CastelBrando sulla collina sopra Cison, con le mura merlate fra gli alberi" width="1400" height="854" loading="lazy"><figcaption>Foto Rino Porrovecchio · CC BY-SA 2.0</figcaption></figure>
+        <span class="tempo">A piedi</span>
+        <h3>CastelBrando</h3>
+        <p>Il castello che vedete dalla casa: mura medievali, armature, le vecchie prigioni e la chiesa di San Martino.</p>
+      </div>
+      <div class="voce">
+        <figure><img src="img/follina.jpg" alt="Il porticato del chiostro dell'Abbazia di Follina con le colonnine binate" width="960" height="720" loading="lazy"><figcaption>Foto mararie · CC BY-SA 2.0</figcaption></figure>
+        <span class="tempo">10 minuti</span>
+        <h3>Abbazia di Follina</h3>
+        <p>Abbazia cistercense del Duecento, con un chiostro del Trecento tenuto benissimo.</p>
+      </div>
+    </div>
+    <div class="altri">
+      <div><span>A piedi · 2 ore</span><b>La Via dell'Acqua</b></div>
+      <div><span>10 minuti</span><b>Laghi di Revine</b></div>
+      <div><span>25 minuti</span><b>Passo San Boldo</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="fascia-notte">
+  <div class="wrap">
+    <p class="occhiello">Dicono di noi</p>
+    <blockquote>“Appartamento molto confortevole in un edificio dove ogni angolo respira storia. Una delizia particolare sono i piccoli pensieri: la bottiglia di spumante, la marmellata e i biscotti, e un angolo accogliente per il vostro cane. Torneremo di sicuro, e più di una volta.”</blockquote>
+    <p class="firma-rec">Recensione su Booking · novembre 2026</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="pratiche">
+      <div>
+        <p class="occhiello">Informazioni pratiche</p>
+        <h2>Come <em>funziona</em></h2>
+        <div class="tabella">
+          <table>
+            <tr><th scope="row">Check-in</th><td>Dalle 15:00. Vi accoglie Maria Barbara di persona e vi consegna le chiavi.</td></tr>
+            <tr><th scope="row">Check-out</th><td>Entro le 11:00.</td></tr>
+            <tr><th scope="row">Documenti</th><td>Un documento d'identità per ogni ospite, minori compresi: è un obbligo di legge e lo registriamo entro 24 ore dall'arrivo.</td></tr>
+            <tr><th scope="row">Imposta di soggiorno</th><td>1 € a persona per notte, fino a 5 notti. Esenti i minori di 14 anni. In contanti all'arrivo.</td></tr>
+            <tr><th scope="row">Animali</th><td>Ammessi su richiesta, con un supplemento di 30 € a soggiorno.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <p class="occhiello">Domande frequenti</p>
+        <h2>Prima di <em>prenotare</em></h2>
+        <details>
+          <summary>Come funziona il parcheggio?</summary>
+          <p>È privato, gratuito e proprio accanto alla casa. Non serve cercare posto in paese.</p>
+        </details>
+        <details>
+          <summary>Va bene per una famiglia di quattro?</summary>
+          <p>Sì: in camera c'è il letto matrimoniale, in soggiorno due letti singoli, e fuori il giardino privato.</p>
+        </details>
+        <details>
+          <summary>Possiamo portare il cane?</summary>
+          <p>Sì, su richiesta, con un supplemento di 30 € a soggiorno. Ditecelo quando prenotate.</p>
+        </details>
+        <details>
+          <summary>Fa caldo d'estate?</summary>
+          <p>Non c'è l'aria condizionata fissa, ma c'è un climatizzatore portatile. Il giardino con il gazebo resta fresco anche nei pomeriggi d'agosto.</p>
+        </details>
+        <details>
+          <summary>Come si prenota?</summary>
+          <p>Scriveteci su WhatsApp le vostre date: vi risponde Maria Barbara, senza intermediari. Se preferite, BaBi si trova anche su Booking.com.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chiusura" id="contatti">
+  <img src="img/colline.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <p class="occhiello" style="color:var(--oro-chiaro)">Contatti</p>
+    <h2>Il vostro soggiorno <em style="color:var(--oro-chiaro)">a Cison</em></h2>
+    <p class="intro">Scriveteci le date su WhatsApp: vi risponde Maria Barbara.</p>
+    <div class="azioni">
+      <a class="btn btn-rame" href="https://wa.me/393200814174?text=Buongiorno%2C%20vorrei%20sapere%20se%20BaBi%20%C3%A8%20libera%20per%20queste%20date%3A%20" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="btn btn-linea" href="https://www.booking.com/hotel/it/babi-cison-di-valmarino.it.html" target="_blank" rel="noopener">Vedi su Booking.com</a>
+    </div>
+    <div class="contatti">
+      <span class="numero">+39 320 081 4174</span>
+      <span>mariabarbaralangs@gmail.com</span>
+      <span>Via Vittorio Veneto 13A · 31030 Cison di Valmarino (TV)</span>
+    </div>
+    <div class="codici">CIN IT026018C2N23GRYFJ · CIR 026018-LOC-00055</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>BaBi · Locazione turistica · Cison di Valmarino (TV)</p>
+    <p>Foto dei dintorni da Wikimedia Commons: Fabio Ragagnin (CC BY-SA 4.0), Rino Porrovecchio (CC BY-SA 2.0), Patafisik (CC BY-SA 4.0), mararie (CC BY-SA 2.0).</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <span><b>BaBi</b>Cison di Valmarino · casa intera per 4</span>
+  <a class="btn btn-rame" href="https://wa.me/393200814174?text=Buongiorno%2C%20vorrei%20sapere%20se%20BaBi%20%C3%A8%20libera%20per%20queste%20date%3A%20" target="_blank" rel="noopener">Chiedi le tue date</a>
+</div>
+</body>
+</html>
